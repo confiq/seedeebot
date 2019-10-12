@@ -75,6 +75,7 @@ class MessageDispatcher(object):
         # ignore edits
         subtype = msg.get('subtype', '')
         if subtype == u'message_changed':
+            logging.debug('Ignoring edit message_changed')
             return
 
         botname = self._get_bot_name()
@@ -138,6 +139,7 @@ class MessageDispatcher(object):
         while True:
             events = self._client.rtm_read()
             for event in events:
+                logging.debug(f'Got event {event}')
                 event_type = event.get('type')
                 if event_type == 'message':
                     self._on_new_message(event)

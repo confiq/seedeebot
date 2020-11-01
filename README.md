@@ -1,25 +1,22 @@
-[![PyPI](https://badge.fury.io/py/slackbot.svg)](https://pypi.python.org/pypi/slackbot) [![Build Status](https://secure.travis-ci.org/lins05/slackbot.svg?branch=master)](http://travis-ci.org/lins05/slackbot)
-
-A chat bot for [Slack](https://slack.com) inspired by [llimllib/limbo](https://github.com/llimllib/limbo) and [will](https://github.com/skoczen/will).
+A chat bot for [Slack](https://slack.com) inspired by [llimllib/limbo](https://github.com/llimllib/limbo), [will](https://github.com/skoczen/will) and [slackbot](https://github.com/lins05/slackbot).
 
 ## Features
 
-* Based on slack [Real Time Messaging API](https://api.slack.com/rtm)
+* Based on slack [Event API](https://api.slack.com/events-api)
 * Simple plugins mechanism
 * Messages can be handled concurrently
-* Automatically reconnect to slack when connection is lost
-* [Full-fledged functional tests](tests/functional/test_functional.py)
 
 ## Installation
 
 
 ```
-pip install slackbot
+pip install TODO
 ```
 
 ## Usage
 
 ### Generate the slack api token
+TODO: 
 
 First you need to get the slack api token for your bot. You have two options:
 
@@ -177,9 +174,6 @@ PLUGINS = [
 
 ## The `@default_reply` decorator
 
-*Added in slackbot 0.4.1*
-
-Besides specifying `DEFAULT_REPLY` in `slackbot_settings.py`, you can also decorate a function with the `@default_reply` decorator to make it the default reply handler, which is more handy.
 
 ```python
 @default_reply
@@ -196,7 +190,3 @@ def my_default_handler(message):
 ```
 
 The above default handler would only handle the messages which must (1) match the specified pattern and (2) can't be handled by any other registered handler.
-
-## List of third party plugins
-
-You can find a list of the available third party plugins on [this page](https://github.com/lins05/slackbot/wiki/Plugins).

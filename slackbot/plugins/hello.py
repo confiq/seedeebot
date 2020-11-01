@@ -1,4 +1,3 @@
-#coding: UTF-8
 import re
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
@@ -44,6 +43,7 @@ def hello_send(message):
 def hello_decorators(message):
     message.send('hello!')
 
+
 @listen_to('hey!')
 def hey(message):
     message.react('eggplant')
@@ -58,7 +58,7 @@ def hello_unicode_message(message):
 def start_thread(message):
     message.reply('I started a thread', in_thread=True)
 
+
 @respond_to('say hi to me')
 def direct_hello(message):
     message.direct_reply("Here you are")
-

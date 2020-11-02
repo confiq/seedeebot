@@ -1,7 +1,7 @@
 #coding: UTF-8
 
 """
-These functional tests would start a slackbot, and use the slack web api to
+These functional tests would start a seedeebot, and use the slack web api to
 drive the tests against the bot.
 """
 
@@ -18,10 +18,10 @@ from tests.functional.slackbot_settings import (
 TRAVIS = 'TRAVIS' in os.environ
 
 def stop_proxy():
-    os.system('slackbot-test-ctl stopproxy')
+    os.system('seedeebot-test-ctl stopproxy')
 
 def start_proxy():
-    os.system('slackbot-test-ctl startproxy')
+    os.system('seedeebot-test-ctl startproxy')
 
 def _start_bot_process():
     args = [
@@ -29,7 +29,7 @@ def _start_bot_process():
         'tests/functional/run.py',
     ]
     if TRAVIS:
-        args = ['slackbot-test-ctl', 'run'] + args
+        args = ['seedeebot-test-ctl', 'run'] + args
     env = dict(os.environ)
     env['SLACKBOT_API_TOKEN'] = testbot_apitoken
     env['SLACKBOT_TEST'] = 'true'

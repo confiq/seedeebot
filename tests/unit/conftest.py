@@ -10,5 +10,5 @@ def mock_settings(monkeypatch):
             return None
 
     settings = Settings()
-    monkeypatch.setattr('slackbot.settings', settings)
-    monkeypatch.setattr('slackbot.dispatcher.settings', settings)
+    monkeypatch.setattr('seedeebot.settings', settings)
+    monkeypatch.setattr('seedeebot.dispatcher.settings', settings)

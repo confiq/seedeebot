@@ -4,7 +4,7 @@ import os
 
 import pytest
 
-from slackbot.manager import PluginsManager
+from seedeebot.manager import PluginsManager
 
 
 @pytest.fixture(scope='session', autouse=True)

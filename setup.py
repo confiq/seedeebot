@@ -1,7 +1,7 @@
 from os.path import join, dirname
 from setuptools import setup, find_packages
 
-__version__ = open(join(dirname(__file__), 'slackbot/VERSION')).read().strip()
+__version__ = open(join(dirname(__file__), 'seedeebot/VERSION')).read().strip()
 
 install_requires = (
     'requests>=2.4.0',
@@ -15,7 +15,7 @@ excludes = (
     '*local_settings*',
 ) # yapf: disable
 
-setup(name='slackbot',
+setup(name='seedeebot',
       version=__version__,
       license='MIT',
       description='A simple chat bot for Slack',

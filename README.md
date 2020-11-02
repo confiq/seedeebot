@@ -42,7 +42,7 @@ Alternatively, you can use the environment variable `SLACKBOT_API_TOKEN`.
 ##### Run the bot
 
 ```python
-from slackbot.bot import Bot
+from seedeebot.bot import Bot
 def main():
     bot = Bot()
     bot.run()
@@ -77,7 +77,7 @@ Add [your plugin modules](#create-plugins) to a `PLUGINS` list in `slackbot_sett
 
 ```python
 PLUGINS = [
-    'slackbot.plugins',
+    'seedeebot.plugins',
     'mybot.plugins',
 ]
 ```

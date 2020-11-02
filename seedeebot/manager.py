@@ -5,8 +5,8 @@ import logging
 from glob import glob
 from six import PY2
 from importlib import import_module
-from slackbot import settings
-from slackbot.utils import to_utf8
+from seedeebot import settings
+from seedeebot.utils import to_utf8
 
 logger = logging.getLogger(__name__)
 
@@ -25,7 +25,7 @@ class PluginsManager(object):
         if hasattr(settings, 'PLUGINS'):
             plugins = settings.PLUGINS
         else:
-            plugins = 'slackbot.plugins'
+            plugins = 'seedeebot.plugins'
 
         for plugin in plugins:
             self._load_plugins(plugin)

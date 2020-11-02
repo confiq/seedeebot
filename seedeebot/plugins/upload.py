@@ -1,8 +1,8 @@
 # coding=utf8
 import os
 
-from slackbot.bot import respond_to
-from slackbot.utils import download_file, create_tmp_file
+from seedeebot.bot import respond_to
+from seedeebot.utils import download_file, create_tmp_file
 
 
 @respond_to(r'upload \<?(.*)\>?')

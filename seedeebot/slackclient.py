@@ -14,7 +14,7 @@ from websocket import (
     create_connection, WebSocketException, WebSocketConnectionClosedException
 )
 
-from slackbot.utils import to_utf8, get_http_proxy
+from seedeebot.utils import to_utf8, get_http_proxy
 
 logger = logging.getLogger(__name__)
 

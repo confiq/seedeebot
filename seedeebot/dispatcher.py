@@ -8,9 +8,9 @@ import traceback
 from functools import wraps
 
 import six
-from slackbot.manager import PluginsManager
-from slackbot.utils import WorkerPool
-from slackbot import settings
+from seedeebot.manager import PluginsManager
+from seedeebot.utils import WorkerPool
+from seedeebot import settings
 
 logger = logging.getLogger(__name__)
 
@@ -90,7 +90,7 @@ class MessageDispatcher(object):
             else:
                 return
 
-        if username == botname or username == u'slackbot':
+        if username == botname or username == u'seedeebot':
             return
 
         msg_respond_to = self.filter_text(msg)

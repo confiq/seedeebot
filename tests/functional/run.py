@@ -3,8 +3,8 @@ import sys
 import logging
 import logging.config
 
-from slackbot import settings
-from slackbot.bot import Bot
+from seedeebot import settings
+from seedeebot.bot import Bot
 
 
 def main():

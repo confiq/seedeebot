@@ -5,7 +5,7 @@ import os
 DEBUG = False
 
 PLUGINS = [
-    'slackbot.plugins',
+    'seedeebot.plugins',
 ]
 
 ERRORS_TO = None

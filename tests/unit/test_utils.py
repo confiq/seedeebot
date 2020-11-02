@@ -1,4 +1,4 @@
-from slackbot.utils import get_http_proxy
+from seedeebot.utils import get_http_proxy
 
 def test_get_http_proxy():
     environ = {'http_proxy': 'foo:8080'}

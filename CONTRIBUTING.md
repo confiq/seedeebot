@@ -14,59 +14,6 @@ It's a good idea to use one branch per pull request. This will allow you to work
 
 Most pull requests should contain only a single commit. If you have to make corrections to a pull request, rebase and squash your branch, then do a forced push. Clean up the commit message so it's clear and as concise as needed.
 
-## Developing
-
-These steps will help you prepare your development environment to work on slackbot.
-
-### Clone the repo
-
-Begin by forking the repo. You will then clone your fork and add the central repo as another remote. This will help you incorporate changes as you develop.
-
-```
-$ git clone git@github.com:yourusername/slackbot.git
-$ cd slackbot
-$ git remote add upstream git@github.com:lins05/slackbot.git
-```
-
-Do not make commits to develop, even in your local copy. All commits should be on a branch. Start your branch:
-
-```
-$ git checkout develop -b name_of_feature
-```
-
-To incorporate upstream changes into your local copy and fork:
-
-```
-$ git checkout develop
-$ git fetch upstream
-$ git merge upstream/master
-$ git push origin develop
-```
-
-See git documentation for info on merging, rebasing, and squashing commits.
-
-### virtualenv/pyvenv
-
-A virtualenv allows you to install the Python packages you need to develop and run slackbot without adding a bunch of unneeded junk to your system's Python installation. Once you create the virtualenv, you need to activate it any time you're developing or running slackbot. The steps are slightly different for Python 2 and Python 3. For Python 2, run:
-
-```
-$ virtualenv --no-site-packages .env
-```
-
-For Python 3, run:
-
-```
-$ pyvenv .env
-```
-
-Now that the virtualenv has been created, activate it and install the packages needed for development:
-
-```
-$ source .env/bin/activate
-$ pip install -r requirements.txt
-```
-
-At this point, you should be able to run slackbot as described in the README.
 
 ### Configure tests
 

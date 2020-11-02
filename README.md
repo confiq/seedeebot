@@ -5,9 +5,9 @@ A chat bot for [Slack](https://slack.com) inspired by [llimllib/limbo](https://g
 * Based on slack [Event API](https://api.slack.com/events-api)
 * Simple plugins mechanism
 * Messages can be handled concurrently
+* bot can work in asyncio or in queue system (pubsub/sqs/rabbitmq)
 
 ## Installation
-
 
 ```
 pip install TODO
@@ -84,93 +84,15 @@ PLUGINS = [
 
 Now you can talk to your bot in your slack client!
 
-### [Attachment Support](https://api.slack.com/docs/attachments)
-
-```python
-from slackbot.bot import respond_to
-import re
-import json
-
-
-@respond_to('github', re.IGNORECASE)
-def github(message):
-    attachments = [
-    {
-        'fallback': 'Fallback text',
-        'author_name': 'Author',
-        'author_link': 'http://www.github.com',
-        'text': 'Some text',
-        'color': '#59afe1'
-    }]
-    message.send_webapi('', json.dumps(attachments))
-```
-
 ## Create Plugins
 
 A chat bot is meaningless unless you can extend/customize it to fit your own use cases.
 
-To write a new plugin, simplely create a function decorated by `slackbot.bot.respond_to` or `slackbot.bot.listen_to`:
+To write a new plugin, simply create a function decorated by `slackbot.bot.respond_to` or `slackbot.bot.listen_to`:
 
-- A function decorated with `respond_to` is called when a message matching the pattern is sent to the bot (direct message or @botname in a channel/private channel chat)
-- A function decorated with `listen_to` is called when a message matching the pattern is sent on a channel/private channel chat (not directly sent to the bot)
-
-```python
-from slackbot.bot import respond_to
-from slackbot.bot import listen_to
-import re
-
-@respond_to('hi', re.IGNORECASE)
-def hi(message):
-    message.reply('I can understand hi or HI!')
-    # react with thumb up emoji
-    message.react('+1')
-
-@respond_to('I love you')
-def love(message):
-    message.reply('I love you too!')
-
-@listen_to('Can someone help me?')
-def help(message):
-    # Message is replied to the sender (prefixed with @user)
-    message.reply('Yes, I can!')
-
-    # Message is sent on the channel
-    message.send('I can help everybody!')
-
-    # Start a thread on the original message
-    message.reply("Here's a threaded reply", in_thread=True)
-```
-
-To extract params from the message, you can use regular expression:
-```python
-from slackbot.bot import respond_to
-
-@respond_to('Give me (.*)')
-def giveme(message, something):
-    message.reply('Here is {}'.format(something))
-```
-
-If you would like to have a command like 'stats' and 'stats start_date end_date', you can create reg ex like so:
-
-```python
-from slackbot.bot import respond_to
-import re
+`#TODO: write docs how to create the plugin`
 
 
-@respond_to('stat$', re.IGNORECASE)
-@respond_to('stat (.*) (.*)', re.IGNORECASE)
-def stats(message, start_date=None, end_date=None):
-```
-
-
-And add the plugins module to `PLUGINS` list of slackbot settings, e.g. slackbot_settings.py:
-
-```python
-PLUGINS = [
-    'slackbot.plugins',
-    'mybot.plugins',
-]
-```
 
 ## The `@default_reply` decorator
 

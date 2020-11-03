@@ -10,7 +10,7 @@ from seedeebot.bot import Bot
 def main():
     kw = {
         'format': '[%(asctime)s] %(message)s',
-        'datefmt': '%m/%d/%Y %H:%M:%S',
+        'datefmt': '%H:%M:%S %d-%m-%Y',
         'level': logging.DEBUG if settings.DEBUG else logging.INFO,
         'stream': sys.stdout,
     }

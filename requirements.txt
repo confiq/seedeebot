@@ -1,0 +1,2 @@
+slack-sdk>=3.0.0rc1
+slackblocks>=0.2.2

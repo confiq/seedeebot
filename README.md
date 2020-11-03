@@ -2,10 +2,10 @@ A chat bot for [Slack](https://slack.com) inspired by [llimllib/limbo](https://g
 
 ## Features
 
-* Based on slack [Event API](https://api.slack.com/events-api)
+* Based on slack [Event API](https://api.slack.com/events-api) and/or [RTM](https://api.slack.com/rtm) 
 * Simple plugins mechanism
 * Messages can be handled concurrently
-* bot can work in asyncio or in queue system (pubsub/sqs/rabbitmq)
+* bot can work in asyncio and/or in queue system (pubsub/sqs/rabbitmq)
 
 ## Installation
 

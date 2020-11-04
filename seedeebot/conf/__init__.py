@@ -37,6 +37,11 @@ class LazySettings:
     def _setup(self):
         logger.debug('initiating the configuration')
         self._wrapped = SettingsObject()
+        self._validation()
+
+    def _validation(self):
+        if not self.get('SLACK_TOKEN'):
+            logger.error('Bot User OAuth Access Token is missing, please add it as OS environment "SEEDEEBOT_SLACK_TOKEN"')
 
 
 class SettingsObject:

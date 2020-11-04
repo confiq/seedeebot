@@ -3,12 +3,9 @@
 import sys
 import logging
 import logging.config
-from seedeebot import conf
+from seedeebot.conf import settings
 from seedeebot.bot import Bot
 
-local_setting = {
-
-}
 
 def main():
     kw = {

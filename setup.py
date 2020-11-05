@@ -4,24 +4,24 @@ from setuptools import setup, find_packages
 __version__ = open(join(dirname(__file__), 'seedeebot/VERSION')).read().strip()
 
 install_requires = (
-    'requests>=2.4.0',
-    'websocket-client>=0.22.0,<=0.44.0',
-    'slacker>=0.9.50',
-    'six>=1.10.0'
-) # yapf: disable
+    'slack-sdk>=3.0.0rc1',
+    'slackblocks>=0.2.2',
+)
 
 excludes = (
     '*test*',
+    '*example*'
     '*local_settings*',
-) # yapf: disable
+    '*venv*',
+)
 
-setup(name='seedeebot',
+setup(name='seedeebot',  # TODO: move this to setup.cfg file as done in django
       version=__version__,
       license='MIT',
       description='A simple chat bot for Slack',
-      author='Shuai Lin',
-      author_email='linshuai2012@gmail.com',
-      url='http://github.com/lins05/slackbot',
+      author='Igor Konforti',
+      author_email='seedeebot@confiq.org',
+      url='https://github.com/confiq/seedeebot',
       platforms=['Any'],
       packages=find_packages(exclude=excludes),
       install_requires=install_requires,
@@ -29,9 +29,6 @@ setup(name='seedeebot',
                    'License :: OSI Approved :: MIT License',
                    'Operating System :: OS Independent',
                    'Programming Language :: Python',
-                   'Programming Language :: Python :: 2',
-                   'Programming Language :: Python :: 2.7',
-                   'Programming Language :: Python :: 3',
-                   'Programming Language :: Python :: 3.4',
-                   'Programming Language :: Python :: 3.5',
-                   'Programming Language :: Python :: 3.6'])
+                   'Programming Language :: Python :: 3.8',
+                   'Programming Language :: Python :: 3.9',
+                   ])

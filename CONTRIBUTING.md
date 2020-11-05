@@ -6,7 +6,7 @@ Thanks for your interest in developing Slackbot! These notes should help you pro
 
 ### Code style
 
-There are places in the code that do not follow PEP 8 conventions. Do follow PEP 8 with new code, but do not fix formatting throughout the file you're editing. If your commit has a lot of unrelated reformatting in addition to your new/changed code, you may be asked to resubmit it with the extra changes removed.
+There are places in the code that do not follow PEP 8 conventions. Do follow PEP 8 with new code!
 
 ### Commits
 
@@ -17,40 +17,9 @@ Most pull requests should contain only a single commit. If you have to make corr
 
 ### Configure tests
 
-In order to run tests, you will need a slack instance. Create a free one at http://slack.com. Do not use an existing Slack for tests. The tests produce quite a bit of chat, and depending on how you set up Travis, it's possible for your API tokens to get leaked. Don't risk it. Use a slack created just for development and test.
+TODO
 
-Create a file named `slackbot_test_settings.py` and add the following settings:
 
-```
-testbot_apitoken = 'xoxb-token'
-testbot_username = 'testbot'
-driver_apitoken = 'xoxp-token'
-driver_username = 'your username'
-test_channel = 'testchannel'
-test_private_channel = 'testprivatechannel'
-```
+### Configure CI
 
-**Important note:** The bot token can be obtained by adding a custom bot integration in Slack. User tokens can be obtained at https://api.slack.com/docs/oauth-test-tokens. Slack tokens are like passwords! Don't commit them. If you're using them in some kind of Github or Travis automation, ensure they are for Slacks that are only for testing.
-
-At this point, you should be able to run tests:
-
-```
-$ py.test
-```
-
-If you're signed into slack, you'll see your user account and bot account chatting with each other as the tests run.
-
-Tox is also available. If your system has Python 2.7, 3.4, and 3.5 installed, installing and running tox will automatically manage the virtual Python environments and dependencies for you.
-
-### Configure Travis
-
-Log in to Travis and enable tests for your slackbot fork. Open Travis settings. You must add the following environment variables, which should correlate to settings in `slackbot_test_settings.py`:
-
-- SLACKBOT_TESTBOT_APITOKEN
-- SLACKBOT_TESTBOT_USERNAME
-- SLACKBOT_DRIVER_APITOKEN
-- SLACKBOT_DRIVER_USERNAME
-- SLACKBOT_TEST_CHANNEL
-- SLACKBOT_TEST_PRIVATE_CHANNEL
-
-You must also set `Limit concurrent jobs` to `1`. If you don't, you will see false positives/failures, especially in the test cases that verify slackbot's ability to automatically reconnect on disconnection.
+TODO

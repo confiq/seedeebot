@@ -1,8 +1,8 @@
-A chat bot for [Slack](https://slack.com) inspired by [llimllib/limbo](https://github.com/llimllib/limbo), [will](https://github.com/skoczen/will) and [slackbot](https://github.com/lins05/slackbot).
+A chat bot for [Slack](https://slack.com) inspired by old pluggable bots like [llimllib/limbo](https://github.com/llimllib/limbo), [will](https://github.com/skoczen/will) and [slackbot](https://github.com/lins05/slackbot).
 
 ## Features
 
-* Based on slack [Event API](https://api.slack.com/events-api) and/or [RTM](https://api.slack.com/rtm) 
+* Based on slack [slack-bolt](https://api.slack.com/events-api) 
 * Simple plugins mechanism
 * Messages can be handled concurrently
 * bot can work in asyncio and/or in queue system (pubsub/sqs/rabbitmq)
@@ -25,7 +25,7 @@ First you need to get the slack api token for your bot. You have two options:
 
 
 ### Configure the bot
-First create a `slackbot_settings.py` and a `run.py` in your own instance of slackbot.
+First create a `local_settings.py` and a `run.py` in your own instance of slackbot.
 
 ##### Configure the api token
 

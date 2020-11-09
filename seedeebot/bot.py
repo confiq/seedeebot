@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
 from __future__ import absolute_import
-import imp
-import importlib
+
 import logging
 import re
 import time
-from glob import glob
 from six.moves import _thread
-from seedeebot import settings
-from seedeebot.manager import PluginsManager
-from seedeebot.slackclient import SlackClient
-from seedeebot.dispatcher import MessageDispatcher
+from seedeebot.conf import settings
+# from seedeebot.manager import PluginsManager
+# from seedeebot.slackclient import SlackClient
+# from seedeebot.dispatcher import MessageDispatcher
 
 logger = logging.getLogger(__name__)
 

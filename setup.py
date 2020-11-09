@@ -1,7 +1,7 @@
 from os.path import join, dirname
 from setuptools import setup, find_packages
 
-__version__ = open(join(dirname(__file__), 'seedeebot/VERSION')).read().strip()
+__version__ = open(join(dirname(__file__), 'seedeebot/version.py')).read().strip()
 
 install_requires = (
     'slack-sdk>=3.0.0rc1',

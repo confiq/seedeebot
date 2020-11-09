@@ -16,3 +16,4 @@ slackbot_test_settings.py
 /.vscode/
 venv
 /.idea/
+/secrets.sh

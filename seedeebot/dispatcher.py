@@ -1,39 +1,28 @@
-# -*- coding: utf-8 -*-
-
-from __future__ import absolute_import
 import logging
-import re
-import time
-import traceback
-from functools import wraps
-
-import six
-from seedeebot.manager import PluginsManager
-from seedeebot.utils import WorkerPool
-from seedeebot import settings
 
 logger = logging.getLogger(__name__)
 
 
 class MessageDispatcher(object):
     def __init__(self, slackclient, plugins, errors_to):
-        self._client = slackclient
-        self._pool = WorkerPool(self.dispatch_msg)
-        self._plugins = plugins
-        self._errors_to = None
-        if errors_to:
-            self._errors_to = self._client.find_channel_by_name(errors_to)
-            if not self._errors_to:
-                raise ValueError(
-                    'Could not find errors_to recipient {!r}'.format(
-                        errors_to))
-
-        alias_regex = ''
-        if getattr(settings, 'ALIASES', None):
-            logger.info('using aliases %s', settings.ALIASES)
-            alias_regex = '|(?P<alias>{})'.format('|'.join([re.escape(s) for s in settings.ALIASES.split(',')]))
-
-        self.AT_MESSAGE_MATCHER = re.compile(r'^(?:\<@(?P<atuser>\w+)\>:?|(?P<username>\w+):{}) ?(?P<text>[\s\S]*)$'.format(alias_regex))
+        pass
+        # self._client = slackclient
+        # self._pool = WorkerPool(self.dispatch_msg)
+        # self._plugins = plugins
+        # self._errors_to = None
+        # if errors_to:
+        #     self._errors_to = self._client.find_channel_by_name(errors_to)
+        #     if not self._errors_to:
+        #         raise ValueError(
+        #             'Could not find errors_to recipient {!r}'.format(
+        #                 errors_to))
+        #
+        # alias_regex = ''
+        # if getattr(settings, 'ALIASES', None):
+        #     logger.info('using aliases %s', settings.ALIASES)
+        #     alias_regex = '|(?P<alias>{})'.format('|'.join([re.escape(s) for s in settings.ALIASES.split(',')]))
+        #
+        # self.AT_MESSAGE_MATCHER = re.compile(r'^(?:\<@(?P<atuser>\w+)\>:?|(?P<username>\w+):{}) ?(?P<text>[\s\S]*)$'.format(alias_regex))
 
     def start(self):
         self._pool.start()
@@ -179,14 +168,6 @@ def unicode_compact(func):
     Make sure the first parameter of the decorated method to be a unicode
     object.
     """
-
-    @wraps(func)
-    def wrapped(self, text, *a, **kw):
-        if not isinstance(text, six.text_type):
-            text = text.decode('utf-8')
-        return func(self, text, *a, **kw)
-
-    return wrapped
 
 
 class Message(object):

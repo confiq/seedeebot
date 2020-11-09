@@ -23,9 +23,6 @@ class Bot(object):
             bot_emoji=settings.BOT_EMOJI if hasattr(settings,
                                                     'BOT_EMOJI') else None
         )
-        self._plugins = PluginsManager()
-        self._dispatcher = MessageDispatcher(self._client, self._plugins,
-                                             settings.ERRORS_TO)
 
     def run(self):
         self._plugins.init_plugins()

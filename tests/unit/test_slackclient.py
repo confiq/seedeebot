@@ -1,6 +1,6 @@
 import pytest
 
-from seedeebot.slackclient import SlackClient
+from seedeebot.client import SlackClient
 from . import slackclient_data
 
 

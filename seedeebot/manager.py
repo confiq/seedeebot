@@ -1,15 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import os
 import logging
-from glob import glob
-from six import PY2
-from importlib import import_module
-from seedeebot import settings
-from seedeebot.utils import to_utf8
+
 
 logger = logging.getLogger(__name__)
-
 
 class PluginsManager(object):
     def __init__(self):

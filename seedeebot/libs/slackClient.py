@@ -11,7 +11,7 @@ class SlackClient:
                  signing_secret: Optional[str] = None,
                  token: Optional[str] = None,
                  ):
-        self.signing_secret = signing_secret or settings.SLACK_TOKEN
-        self.token = token or settings.SLACK_SIGNING_SECRET
+        self.token = token or settings.SLACK_TOKEN
+        self.signing_secret = signing_secret or settings.SLACK_SIGNING_SECRET
         # TODO: Async
         self.slack_bolt_client = App(token=self.token, signing_secret=self.signing_secret)

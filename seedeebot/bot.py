@@ -3,10 +3,9 @@ from __future__ import absolute_import
 import logging
 import re
 import time
-from six.moves import _thread
 from seedeebot.conf import settings
 # from seedeebot.manager import PluginsManager
-# from seedeebot.slackclient import SlackClient
+from seedeebot.client import Client
 # from seedeebot.dispatcher import MessageDispatcher
 
 logger = logging.getLogger(__name__)
@@ -14,23 +13,15 @@ logger = logging.getLogger(__name__)
 
 class Bot(object):
     def __init__(self):
-        self._client = SlackClient(
-            settings.API_TOKEN,
-            timeout=settings.TIMEOUT if hasattr(settings,
-                                                'TIMEOUT') else None,
-            bot_icon=settings.BOT_ICON if hasattr(settings,
-                                                  'BOT_ICON') else None,
-            bot_emoji=settings.BOT_EMOJI if hasattr(settings,
-                                                    'BOT_EMOJI') else None
-        )
+        self._client = Client()
 
     def run(self):
         self._plugins.init_plugins()
         self._dispatcher.start()
-        if not self._client.connected: 
+        if not self._client.connected:
             self._client.rtm_connect()
-            
-        _thread.start_new_thread(self._keepactive, tuple())
+
+
         logger.info('connected to slack RTM api')
         self._dispatcher.loop()
 
